@@ -3,29 +3,29 @@ import React, { useContext } from "react";
 import useStyles from "../styles";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { AppContext } from "../context/AppContext";
-import { DELETE_EXPENSE } from "../ActionTypes";
+import { DELETE_EXPENSE, DELETE_INCOME } from "../ActionTypes";
 
-function ExpenseItem({ expense }) {
+function IncomeItem({ income }) {
   const classes = useStyles();
   const { dispatch } = useContext(AppContext);
   return (
     <>
       <Card
-        className={`${classes.listItem} ${classes.expenseCard} ${classes.card}`}
+        className={`${classes.listItem} ${classes.incomeCard} ${classes.card}`}
       >
-        {expense.name}
+        {income.name}
         <div>
           <span className={classes.priceBadge}>
-            ${expense.cost}
+            ${income.cost}
             {/* <Badge color="primary" badgeContent={expense.cost} /> */}
           </span>
-          <span>{expense.expenseType.toUpperCase()}</span>
+          <span>{income.expenseType.toUpperCase()}</span>
           <span className={classes.deleteIcon}>
             <DeleteIcon
               onClick={() => {
                 dispatch({
-                  type: DELETE_EXPENSE,
-                  payload: expense.id,
+                  type: DELETE_INCOME,
+                  payload: income.id,
                 });
               }}
             />
@@ -36,4 +36,4 @@ function ExpenseItem({ expense }) {
   );
 }
 
-export default ExpenseItem;
+export default IncomeItem;

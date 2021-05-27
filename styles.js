@@ -9,12 +9,13 @@ const useStyles = makeStyles((theme) => ({
   card: {
     textAlign: "center",
     padding: "20px",
+    marginTop: "20px",
   },
-  budgetCard: {
+  incomeCard: {
     background: "#e1e3e4",
     color: "#6a6c6e",
   },
-  expensetotalCard: {
+  expenseCard: {
     background: "#cee0ff",
     color: "#4d52a3",
   },

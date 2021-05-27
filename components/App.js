@@ -1,9 +1,9 @@
 import { Container, Divider, Grid } from "@material-ui/core";
-import Budget from "./Budget";
-import Remaining from "./Remaining";
-import ExpenseTotal from "./ExpenseTotal";
+import Total from "./Total";
+import Expense from "./Expense";
 import ExpensesList from "./ExpensesList";
 import AddExpense from "./AddExpense";
+import Income from "./Income";
 import { AppProvider } from "../context/AppContext";
 import useStyles from "../styles";
 // import { useState } from "react";
@@ -15,13 +15,13 @@ function App() {
         <h3>My budget planner</h3>
         <Grid container spacing={3}>
           <Grid item sm>
-            <Budget />
+            <Income />
           </Grid>
           <Grid item sm>
-            <Remaining />
+            <Expense />
           </Grid>
           <Grid item sm>
-            <ExpenseTotal />
+            <Total />
           </Grid>
         </Grid>
         <h3>Add Expense</h3>

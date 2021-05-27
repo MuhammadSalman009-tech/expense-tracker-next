@@ -3,19 +3,23 @@ import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import useStyles from "../styles";
 
-function Remaining() {
+function Total() {
   const classes = useStyles();
-  const { expenses, budget } = useContext(AppContext);
+  const { expenses, incomes } = useContext(AppContext);
   const expenseTotal = expenses.reduce((total, item) => {
     return (total = total + item.cost);
   }, 0);
-  const alertType = expenseTotal > budget ? "card-danger" : "card-success";
+  const incomeTotal = incomes.reduce((total, item) => {
+    return (total = total + item.cost);
+  }, 0);
+  const alertType =
+    incomeTotal >= expenseTotal ? "card-success" : "card-danger";
 
   return (
     <Card className={`${classes.card} ${alertType}`}>
-      Remaining: ${budget - expenseTotal}
+      Total: ${incomeTotal - expenseTotal}
     </Card>
   );
 }
 
-export default Remaining;
+export default Total;
